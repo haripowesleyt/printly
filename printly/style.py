@@ -225,14 +225,13 @@ def _get_rgb_values(color: Color) -> Tuple[int, int, int]:
     raise ValueError(f"Unrecognized color '{color}'.")
 
 
-def _get_fontstyle_codes(fontstyle: FontStyle) -> Generator[int]:
+def _get_fontstyle_codes(fontstyle: FontStyle) -> Generator[int, None, None]:
     """Retrieves font style codes for a given font style input."""
     fontstyle = re.sub(r"\s+", "", f"{fontstyle}").lower()
     for fontstyle in fontstyle.split(COMBINATOR):
-        if fontstyle_code := FONT_STYLE_CODES.get(fontstyle):
-            yield fontstyle_code
-        else:
+        if not (fontstyle_code := FONT_STYLE_CODES.get(fontstyle)):
             raise ValueError(f"Unrecognized font style '{fontstyle}'.")
+        yield fontstyle_code
 
 
 def style(
