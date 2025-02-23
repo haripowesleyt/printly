@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "printly"
-version = "0.1.0"
+version = "0.1.1"
 authors = [{name = "Haripo Wesley T.", email = "haripowesleyt@proton.me"}]
 maintainers = [{name = "Haripo Wesley T.", email = "haripowesleyt@proton.me"}]
 description = "Printly is a Python library that enhances the built-in print function with direct text styling: foreground color, background color, and font styles."
