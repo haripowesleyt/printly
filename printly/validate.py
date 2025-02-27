@@ -28,8 +28,8 @@ def validate_color(color: Color) -> Color:
                 raise ValueError(f"Invalid RGB color '{color}'. RGB values must be in range 0-255.")
         else:
             if color not in COLORS_RGB_MAP:
-                closest = ", ".join(get_close_matches(color, COLORS_RGB_MAP, n=3))
-                error_hint = f"Did you mean {closest}?" if closest else "Not predefined."
+                closest = ", ".join(get_close_matches(color, COLORS_RGB_MAP, n=1))
+                error_hint = f"Did you mean '{closest}'?" if closest else ""
                 raise ValueError(f"Invalid color name '{color}'. {error_hint}")
     return color
 
@@ -40,7 +40,7 @@ def validate_fontstyle(fontstyle: FontStyle) -> FontStyle:
     fontstyles = sorted(set(fontstyle.split(COMBINATOR)))
     for fontstyle in fontstyles:
         if fontstyle not in FONT_STYLE_CODES:
-            closest = ", ".join(get_close_matches(fontstyle, FONT_STYLE_CODES, n=3))
-            error_hint = f"Did you mean {closest}" if closest else "Not predefined."
+            closest = ", ".join(get_close_matches(fontstyle, FONT_STYLE_CODES, n=1))
+            error_hint = f"Did you mean '{closest}'?" if closest else ""
             raise ValueError(f"Invalid font style '{fontstyle}'. {error_hint}")
     return COMBINATOR.join(fontstyles)
