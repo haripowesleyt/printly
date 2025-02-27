@@ -31,7 +31,7 @@ def print(  # pylint: disable=redefined-builtin
         bg (Color | None): Background color for the text. Defaults to `None`.
         fs (FontStyle | None): Font style for the text. Defaults to `None`.
     """
-    if (fg or bg or fs) and (file is None or file == sys.stdout):
+    if (fg or bg or fs) and (file is None or file in sys.stdout, sys.stderr):
         objects = tuple(style(f"{object}", fg=fg, bg=bg, fs=fs) for object in objects)
         sep = style(f"{sep}", fg=fg, bg=bg, fs=fs) if sep else sep
         end = style(f"{end}", fg=fg, bg=bg, fs=fs) if end else end
