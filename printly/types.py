@@ -1,6 +1,8 @@
-"""Define custom types for colors and font styles."""
+"""Defines custom types for colors and font styles."""
 
 from typing import Literal, TypeAlias, Union
+
+__all__ = ["Color", "FontStyle"]
 
 Color: TypeAlias = Union[
     str,  # hex & rgb
@@ -166,7 +168,7 @@ Color: TypeAlias = Union[
 ]
 
 FontStyle: TypeAlias = Union[
-    str,  # combining font styles (e.g., "bold+italic")
+    str,  # combininations
     Literal[
         "bold",
         "italic",
