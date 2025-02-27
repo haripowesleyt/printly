@@ -21,7 +21,7 @@ Usage Examples:
 >>> print("Hello, world!", fg="red", bg="white", fs="bold")
 
 3. Using the `style()` function:
->>> from orintly import style
+>>> from printly import style
 >>> styled_text = style("Hello, world!", fg="red", bg="white", fs="bold")
 >>> print(styled_text)
 """
