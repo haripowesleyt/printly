@@ -2,6 +2,7 @@
 
 import re
 from difflib import get_close_matches
+from typing import Optional
 from .types import Color, FontStyle
 from .const import COLORS_RGB_MAP, COMBINATOR, FONT_STYLE_CODES, HEX_PREFIX, RGB_DELIMITER
 
@@ -10,8 +11,10 @@ __all__ = ["validate_color", "validate_fontstyle"]
 HEX_PATTERN = re.compile(r"^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$")
 
 
-def validate_color(color: Color) -> Color:
+def validate_color(color: Optional[Color]) -> Optional[Color]:
     """Validates a color to check if it is supported."""
+    if color is None:
+        return color
     color = re.sub(r"(\s+|-+)", "", f"{color}").lower()
     if color is not None:
         if HEX_PREFIX in color:
@@ -34,8 +37,10 @@ def validate_color(color: Color) -> Color:
     return color
 
 
-def validate_fontstyle(fontstyle: FontStyle) -> FontStyle:
+def validate_fontstyle(fontstyle: Optional[FontStyle]) -> Optional[FontStyle]:
     """Validates a font style to check if it is supported."""
+    if fontstyle is None:
+        return fontstyle
     fontstyle = re.sub(r"\s+", "", f"{fontstyle}").lower()
     fontstyles = sorted(set(fontstyle.split(COMBINATOR)))
     for fontstyle in fontstyles:
