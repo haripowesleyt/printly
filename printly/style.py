@@ -40,7 +40,7 @@ def style(
     Returns:
         str: Styled text if any of `fg`, `bg`, or `fs` is specified else `text`.
     """
-    if fg or bg or fs:
+    if (fg or bg or fs) and text:
         fg_code = bg_code = fs_code = ""
         if fg:
             fg_code = f"\033[38;2;{';'.join(map(str, _get_rgb_values(color=fg)))}m"
