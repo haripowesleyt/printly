@@ -6,7 +6,7 @@ from .validate import validate_color, validate_fontstyle
 from .const import COLORS_RGB_MAP, FONT_STYLE_CODES, COMBINATOR, HEX_PREFIX, RGB_DELIMITER
 
 
-def _get_rgb_values(color: Color) -> Tuple[int, ...]:
+def get_rgb_values(color: Color) -> Tuple[int, ...]:
     """Converts given color to individual rgb values."""
     color = validate_color(color)
     if color.startswith(HEX_PREFIX):
@@ -43,9 +43,9 @@ def style(
     if (fg or bg or fs) and text:
         fg_code = bg_code = fs_code = ""
         if fg:
-            fg_code = f"\033[38;2;{';'.join(map(str, _get_rgb_values(color=fg)))}m"
+            fg_code = f"\033[38;2;{';'.join(map(str, get_rgb_values(color=fg)))}m"
         if bg:
-            bg_code = f"\033[48;2;{';'.join(map(str, _get_rgb_values(color=bg)))}m"
+            bg_code = f"\033[48;2;{';'.join(map(str, get_rgb_values(color=bg)))}m"
         if fs:
             fs_code = "".join((f"\033[{code}m" for code in _get_fontstyle_codes(fs)))
         styles = fg_code + bg_code + fs_code
