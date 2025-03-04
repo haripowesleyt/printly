@@ -42,3 +42,6 @@ from printly import style
 styled_text = style("Hello, world!", fg="red", bg="white", fs="bold")
 print(styled_text)
 ```
+### Example Output
+  ![image](https://github.com/user-attachments/assets/9fce2ab1-c306-4f51-ad11-aa5adbc59cb7)
+
