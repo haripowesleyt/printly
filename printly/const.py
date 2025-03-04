@@ -178,7 +178,7 @@ FONT_STYLE_CODES: Dict[FontStyle, int] = {
     "bold": 1,
     "italic": 3,
     "underline": 4,
-    "hide": 8,
+    "hidden": 8,
     "strikethrough": 9,
     "double-underline": 21,
     "overline": 53,

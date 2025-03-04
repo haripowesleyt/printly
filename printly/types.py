@@ -173,7 +173,7 @@ FontStyle: TypeAlias = Union[
         "bold",
         "italic",
         "underline",
-        "hide",
+        "hidden",
         "strikethrough",
         "double-underline",
         "overline",
