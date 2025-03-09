@@ -25,13 +25,16 @@ An enhanced version of the built-in `print()` function.
 #### Example 1 (Recommended)
 ```python
 import printly
-printly.print("Hello, world!", fg="red", bg="white", fs="bold") 
+printly.print("Hello, world!", fg="red", bg="white", fs="bold")
 ```
+![image](https://github.com/user-attachments/assets/4286033b-3174-4ae9-90e9-15186db6f005)
+
 #### Example 2 (Override Built-in `print()`)
 ```python
 from printly import print
-print("Hello, world!", fg="red", bg="white", fs="bold")
+print("I am a hacker!", fg="lime", bg="black", fs="bold+italic")
 ```
+![image](https://github.com/user-attachments/assets/6d677ffc-55cb-4ab1-909d-ab08a8b15040)
 
 ### 2. `style()` Function
 Apply foreground color, background color, and font style to text.
@@ -39,9 +42,7 @@ Apply foreground color, background color, and font style to text.
 #### Example
 ```python
 from printly import style
-styled_text = style("Hello, world!", fg="red", bg="white", fs="bold")
-print(styled_text)
+msg = style("I love you! 💓", bg="hotpink", fg="deeppink", fs="bold")
+print(msg)
 ```
-### Example Output
-  ![image](https://github.com/user-attachments/assets/9fce2ab1-c306-4f51-ad11-aa5adbc59cb7)
-
+![image](https://github.com/user-attachments/assets/0fca6949-d21a-4a7c-9edf-c5efd825ceff)
