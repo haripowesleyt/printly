@@ -45,4 +45,4 @@ from printly import style
 msg = style("I love you! 💓", bg="hotpink", fg="deeppink", fs="bold")
 print(msg)
 ```
-![image](https://github.com/user-attachments/assets/0fca6949-d21a-4a7c-9edf-c5efd825ceff)
+![image](https://github.com/user-attachments/assets/3dfb2bac-c355-4334-bf33-34a7794e4006)
