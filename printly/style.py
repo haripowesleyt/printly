@@ -3,7 +3,7 @@
 from typing import Any, Generator, Optional, Tuple
 from .types import Color, FontStyle
 from .validate import validate_color, validate_fontstyle
-from .const import COLORS_RGB_MAP, FONT_STYLE_CODES, COMBINATOR, HEX_PREFIX, RGB_DELIMITER
+from .const import COLORS_RGB_MAP, FONT_STYLE_CODES, COMBINATOR, HEX_PREFIX, RGB_DELIMITER, RESET
 
 
 def get_rgb_values(color: Color) -> Tuple[int, ...]:
@@ -49,7 +49,8 @@ def style(
         if fs := validate_fontstyle(fs):
             fs_code = "".join((f"\033[{code}m" for code in _get_fontstyle_codes(fs)))
         styles = fg_code + bg_code + fs_code
-        styled_text = styles + text.replace("\n", "\033[0m" + "\n" + styles)
-        styled_text += "\033[0m" if not styled_text.endswith("\033[0m") else ""
+        styled_text = styles + text.replace(RESET, f"{RESET}{styles}")
+        styled_text = styled_text.replace("\n", f"{RESET}\n{styles}")
+        styled_text += RESET if not styled_text.endswith(RESET) else ""
         return styled_text
     return text
