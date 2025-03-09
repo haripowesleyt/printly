@@ -12,6 +12,9 @@ RGB_DELIMITER: str = ","
 COMBINATOR: str = "+"
 """Character that joins multiple font styles."""
 
+RESET = "\033[0m"
+"""Closing tag for styling: indicates end of styling"""
+
 COLORS_RGB_MAP: Dict[Color, Tuple[int, int, int]] = {
     # Shades of Green
     "greenyellow": (173, 255, 47),
